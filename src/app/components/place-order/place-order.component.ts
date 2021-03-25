@@ -13,8 +13,8 @@ export class PlaceOrderComponent implements OnInit {
   ngOnInit(){}
 
   submitOrder(){
-    // this.orderService.placeOrder().subscribe();
-    console.log('submit!')
+    // form json should be integrated here
+    this.orderService.placeOrder();
   }
 
 }

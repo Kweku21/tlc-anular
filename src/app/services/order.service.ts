@@ -13,6 +13,7 @@ export class OrderService {
         .subscribe({
             next: data => {
                 this.postId = data.id;
+                console.log("success!")
             },
             error: error => {
                 this.errorMessage = error.message;
