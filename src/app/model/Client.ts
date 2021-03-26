@@ -1,7 +1,8 @@
 export class Client{
 
-  id: number;
+  clientId: number;
   name: string;
   email: string;
+  balance: number;
 
 }
