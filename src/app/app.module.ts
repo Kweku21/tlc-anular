@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MarketDataComponent } from './components/market-data/market-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    PlaceOrderComponent
+    PlaceOrderComponent,
+    MarketDataComponent
   ],
   imports: [
     BrowserModule,
