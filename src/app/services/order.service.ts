@@ -4,21 +4,21 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class OrderService {
-    postId: number;
+    //baseUrl = "https://clientconnection.herokuapp.com/api/order/sendOrder"
+    baseUrl = "/"
     errorMessage: string;
     constructor( private http: HttpClient ) { }
     
-    placeOrder() {
-        this.http.post<any>('https://jsonplaceholder.typicode.com/posts', { title: "Sample post"})
+    placeOrder(formData) {
+        this.http.post<any>(this.baseUrl, formData)
         .subscribe({
             next: data => {
-                this.postId = data.id;
-                console.log("success!")
+                console.log(data)
             },
             error: error => {
                 this.errorMessage = error.message;
                 console.error("whoops!");
             }
-    })
+        })
     }
 }
