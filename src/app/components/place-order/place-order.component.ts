@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-place-order',
@@ -12,9 +13,8 @@ export class PlaceOrderComponent implements OnInit {
 
   ngOnInit(){}
 
-  submitOrder(){
-    // form json should be integrated here
-    this.orderService.placeOrder();
+  submitOrder(form: NgForm){
+    this.orderService.placeOrder(form.value);
   }
 
 }

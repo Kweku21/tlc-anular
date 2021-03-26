@@ -1,32 +1,32 @@
 <div class="place-order">
     <h1>Welcome back, Kalyssa.</h1>
     <div class="form-group">
-        <form (ngSubmit)="submitOrder()">
+        <form #form="ngForm" (ngSubmit)="submitOrder(form)">
             <div class="form-group row">
-              <label class="form-label">Product</label>
+              <label for="product" class="form-label">Product</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control"/>
+                <input name="product" type="text" class="form-control" ngModel/>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="form-label">Price</label>
+              <label for="price" class="form-label">Price</label>
               <div class="col-sm-4">
-                <input type="number" class="form-control"/>
+                <input name="price" type="number" class="form-control" ngModel/>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="form-label">Quantity</label>
+              <label for="quantity" class="form-label">Quantity</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control"/>
+                <input name="quantity" type="text" class="form-control" ngModel/>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="form-label">Side:</label>
+              <label for="side" class="form-label">Side:</label>
               <div class="col-sm-4">
-                <select class="form-control" id="side-select">
+                <select class="form-control" name="side" ngModel>
                     <option>BUY</option>
                     <option>SELL</option>
                 </select>
@@ -34,9 +34,9 @@
             </div>
 
             <div class="form-group row">
-              <label class="form-label">Portfolio:</label>
+              <label for="portfolio" class="form-label">Portfolio:</label>
               <div class="col-sm-4">
-                <select class="form-control" id="side-select">
+                <select class="form-control" name="portfolio" ngModel>
                     <option>Portfolio A</option>
                 </select>
               </div>
