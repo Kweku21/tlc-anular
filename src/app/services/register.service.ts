@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-import {RegisterRequest} from '../model/RegisterRequest';
-import { Client } from '../model/Client';
+import {RegisterRequest} from '../model/requests/RegisterRequest';
+import { Client } from '../model/data/Client';
 
 @Injectable({
   providedIn: 'root'

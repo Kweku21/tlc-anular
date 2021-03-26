@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../../services/data.service';
+import {Client} from '../../model/data/Client';
 
 @Component({
   selector: 'app-body',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-  constructor() { }
+  public client: Client;
+
+  constructor(
+    private data: DataService,
+  ) { }
 
   ngOnInit(): void {
+
+    this.data.currentClient.subscribe(client => this.client = client);
   }
 
 }

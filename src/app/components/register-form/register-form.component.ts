@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {RegisterRequest} from '../../model/RegisterRequest';
 import {RegisterService} from '../../services/register.service';
-import {Client} from '../../model/Client';
+import {Client} from '../../model/data/Client';
 import {NgForm} from '@angular/forms';
 import { Router} from '@angular/router';
 
@@ -13,7 +12,6 @@ import { Router} from '@angular/router';
 export class RegisterFormComponent implements OnInit {
 
   public client: Client;
-  public registerRequest: RegisterRequest;
 
   constructor(
     private registerService: RegisterService,
@@ -26,16 +24,14 @@ export class RegisterFormComponent implements OnInit {
   public registerClient(registerForm: NgForm): void{
 
     this.registerService.registerClient(registerForm.value).subscribe(
-      (response: any) => {
-        // this.client = response;
-        // console.log(response);
+      (response: Client) => {
         registerForm.resetForm();
         this.route.navigate(['/login']).then(r => console.log(r));
-        // ro
       },
       (error => {
         console.log(error);
-        // alert(error.message);
+        alert('Unable to register');
+
       })
     );
   }

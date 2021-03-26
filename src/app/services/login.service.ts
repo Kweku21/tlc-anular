@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Client} from '../model/Client';
-import {LoginRequest} from '../model/LoginRequest';
-import {NgForm} from '@angular/forms';
+import {Client} from '../model/data/Client';
+import {LoginRequest} from '../model/requests/LoginRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,10 @@ export class LoginService {
 
   private apiBaseUrl = 'https://clientconnection.herokuapp.com/api/client';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+
+    ) { }
 
   public loginClient(loginRequest: LoginRequest): Observable<Client>{
 
