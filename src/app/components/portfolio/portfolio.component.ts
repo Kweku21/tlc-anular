@@ -32,7 +32,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   public checkAuthClient(): void{
-    this.data.currentClient.subscribe(client => this.client = client);
+    this.client = this.data.getClient();
     if (this.client == null){
 
       const responseMessage = {
@@ -53,7 +53,7 @@ export class PortfolioComponent implements OnInit {
 
       (response: Portfolio[]) => {
         this.portfolios = response;
-        console.log(response);
+        // console.log(response);
       },
       (error => {
         alert('Unable to get all portfolios');
@@ -73,25 +73,40 @@ export class PortfolioComponent implements OnInit {
   }
 
   public addPortfolio(portfolioForm: NgForm): void{
+
+    // console.log(portfolioForm.value);
     this.portfolioService.postPortfolio(portfolioForm.value, this.client).subscribe(
       (response: Portfolio) => {
         this.portfolios.push(response);
       },
       (error => {
+        console.log(error.message);
         alert('Unable to create portfolio');
       })
     );
   }
 
-  public deletePortfolioById(portfolioId: number): void{
-    this.portfolioService.deletePortfolioById(portfolioId).subscribe(
+  public deletePortfolio(portfolio: Portfolio): void{
+
+    if (!confirm('Are you sure you wan to delete ' + portfolio.name)){
+      return;
+    }
+    // console.log('now here');
+    this.portfolioService.deletePortfolioById(portfolio.portfolioId).subscribe(
       () => {
+        this.removeFromList(portfolio);
         alert('Successfully deleted portfolio');
       },
       (error => {
+        console.log(error.message);
         alert('Unable to delete portfolio');
       })
     );
+  }
+
+  public removeFromList(portfolio: Portfolio): void{
+    // @ts-ignore
+    this.portfolios = this.portfolios.filter(portfolioId => portfolioId !== portfolio.portfolioId );
   }
 
 

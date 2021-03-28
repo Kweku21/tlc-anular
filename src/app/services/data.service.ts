@@ -12,9 +12,6 @@ export class DataService {
   public client: Client;
   public message: Message;
 
-  private clientSource = new BehaviorSubject<Client>(null);
-  currentClient = this.clientSource.asObservable();
-
   private messageSource = new BehaviorSubject<Message>(null);
   currentMessage = this.messageSource.asObservable();
 
@@ -22,11 +19,13 @@ export class DataService {
 
   // tslint:disable-next-line:typedef
   public setClient(client: Client){
-    this.clientSource.next(client);
+    // @ts-ignore
+    localStorage.setItem('client', JSON.stringify(client));
+    // this.clientSource.next(client);
   }
 
   public getClient(): Client{
-    this.currentClient.subscribe(client => this.client = client);
+    this.client = JSON.parse(localStorage.getItem('client'));
     return this.client;
   }
 

@@ -17,7 +17,7 @@ export class BodyComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.data.currentClient.subscribe(client => this.client = client);
+    this.client = this.data.getClient();
   }
 
 }

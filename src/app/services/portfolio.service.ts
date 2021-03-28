@@ -17,12 +17,12 @@ export class PortfolioService {
   ) { }
 
   public getAllClientPortfolios(client: Client): Observable<Portfolio[]>{
-    return this.http.get<Portfolio[]>(`${this.apiBaseUrl}/all/${client.clientId}`);
+    return this.http.get<Portfolio[]>(`${this.apiBaseUrl}/all/?client_id=${client.clientId}`);
   }
 
   public postPortfolio(portfolioRequest: PortfolioRequest, client: Client): Observable<Portfolio>{
 
-    return this.http.post<Portfolio>(`${this.apiBaseUrl}/add/${client.clientId}`, portfolioRequest);
+    return this.http.post<Portfolio>(`${this.apiBaseUrl}/add/?client_id=${client.clientId}`, portfolioRequest);
   }
 
   public getPortfolioById(portfolioId: number): Observable<Portfolio>{
