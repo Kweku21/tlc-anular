@@ -10,6 +10,7 @@ import {LoginRequest} from '../model/requests/LoginRequest';
 export class LoginService {
 
   private apiBaseUrl = 'https://clientconnection.herokuapp.com/api/client';
+  private apiBaseUrl2 = 'https://tradeenginedb.herokuapp.com/api/v1/client';
 
   constructor(
     private http: HttpClient,
@@ -18,12 +19,12 @@ export class LoginService {
 
   public loginClient(loginRequest: LoginRequest): Observable<Client>{
 
-    return this.http.post<Client>(`${this.apiBaseUrl}/login`, loginRequest);
+    return this.http.post<Client>(`${this.apiBaseUrl2}/login`, loginRequest);
   }
 
   public getClients(): Observable<Client[]> {
 
-    return this.http.get<any>(`${this.apiBaseUrl}/all`);
+    return this.http.get<any>(`${this.apiBaseUrl2}/all`);
 
   }
 }

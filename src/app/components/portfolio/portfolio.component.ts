@@ -5,7 +5,7 @@ import {Client} from '../../model/data/Client';
 import {Portfolio} from '../../model/data/Portfolio';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
-import {Message} from '../../model/response/Message';
+import {PortfolioRequest} from '../../model/requests/PortfolioRequest';
 
 @Component({
   selector: 'app-portfolio',
@@ -56,6 +56,7 @@ export class PortfolioComponent implements OnInit {
         // console.log(response);
       },
       (error => {
+        console.log(error.message);
         alert('Unable to get all portfolios');
       })
     );
@@ -65,25 +66,33 @@ export class PortfolioComponent implements OnInit {
      this.portfolioService.getPortfolioById(portfolioId).subscribe(
        (response: Portfolio) => {
          this.portfolio = response;
+         // console.log(response);
        },
        (error => {
          alert('Unable to get portfolio with id ' + portfolioId);
        })
      );
+
   }
 
   public addPortfolio(portfolioForm: NgForm): void{
 
     // console.log(portfolioForm.value);
-    this.portfolioService.postPortfolio(portfolioForm.value, this.client).subscribe(
-      (response: Portfolio) => {
-        this.portfolios.push(response);
+    const portfolioRequest = new PortfolioRequest(portfolioForm.value.name, this.client.clientId);
+    this.portfolioService.postPortfolio(portfolioRequest).subscribe(
+      (response: any) => {
+        // @ts-ignore
+        this.getAllPortfoliosByClient(this.client);
+        // console.log(response);
+        // this.portfolios.push(response);
       },
       (error => {
         console.log(error.message);
-        alert('Unable to create portfolio');
+        // alert('Unable to create portfolio');
       })
     );
+    portfolioForm.resetForm();
+    document.getElementById('add-portfolio-form').click();
   }
 
   public deletePortfolio(portfolio: Portfolio): void{
@@ -94,7 +103,8 @@ export class PortfolioComponent implements OnInit {
     // console.log('now here');
     this.portfolioService.deletePortfolioById(portfolio.portfolioId).subscribe(
       () => {
-        this.removeFromList(portfolio);
+        // this.removeFromList(portfolio);
+        this.getAllPortfoliosByClient(this.client);
         alert('Successfully deleted portfolio');
       },
       (error => {

@@ -45,7 +45,7 @@ export class LoginFormComponent implements OnInit {
     this.loginService.loginClient(loginForm.value).subscribe(
       (response: Client) => {
 
-        console.log(response);
+        // console.log(response);
 
         // Set the global client value
         this.data.setClient(response);

@@ -10,23 +10,22 @@ import {Client} from '../model/data/Client';
 })
 export class PortfolioService {
 
-  private apiBaseUrl = 'https://clientconnection.herokuapp.com/api/portfolio';
+  private apiBaseUrl = 'https://tradeenginedb.herokuapp.com/api/v1/portfolio';
 
   constructor(
     private http: HttpClient,
   ) { }
 
   public getAllClientPortfolios(client: Client): Observable<Portfolio[]>{
-    return this.http.get<Portfolio[]>(`${this.apiBaseUrl}/all/?client_id=${client.clientId}`);
+    return this.http.get<Portfolio[]>(`${this.apiBaseUrl}/client/${client.clientId}`);
   }
 
-  public postPortfolio(portfolioRequest: PortfolioRequest, client: Client): Observable<Portfolio>{
-
-    return this.http.post<Portfolio>(`${this.apiBaseUrl}/add/?client_id=${client.clientId}`, portfolioRequest);
+  public postPortfolio(portfolioRequest: PortfolioRequest): Observable<Portfolio>{
+    return this.http.post<Portfolio>(`${this.apiBaseUrl}/new`, portfolioRequest);
   }
 
   public getPortfolioById(portfolioId: number): Observable<Portfolio>{
-    return this.http.get<Portfolio>(`${portfolioId}`);
+    return this.http.get<Portfolio>(`${this.apiBaseUrl}/id/${portfolioId}`);
   }
 
   public deletePortfolioById(portfolioId: number): Observable<any>{
