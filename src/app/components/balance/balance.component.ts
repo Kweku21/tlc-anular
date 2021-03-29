@@ -18,11 +18,16 @@ export class BalanceComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.client =       {
+      clientId: 2,
+      name: 'Kwesi',
+      email: "ice@gmail.com",
+      balance: 20
+    }
+
     this.client.balance = this.balanceService.getbalance();
 
   }
-
-  setClasss
 
  
 
