@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Client } from "../../model/Client";
+import { BalanceService } from '../../services/balance.service';
 
 @Component({
   selector: 'app-balance',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BalanceComponent implements OnInit {
 
-  constructor() { }
+  client: Client;
+
+
+
+  constructor( private balanceService:BalanceService) {}
+  
 
   ngOnInit(): void {
+
+    this.client.balance = this.balanceService.getbalance();
+
   }
+
+  setClasss
+
+ 
 
 }
