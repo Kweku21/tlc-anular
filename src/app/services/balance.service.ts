@@ -13,25 +13,25 @@ export class BalanceService {
   private Url = 'https://tradeenginedb.herokuapp.com/api/v1/client/baal';
   constructor( private http: HttpClient) { }
 
-  getBalance(){
-    return [
-      {
-        clientId: 2,
-        name: 'Kwesi',
-        email: "ice@gmail.com",
-        balance: 50
-      }
-    ];
-  }
+  // public getBalance(): any{
+  //   return [
+  //     {
+  //       clientId: 2,
+  //       name: 'Kwesi',
+  //       email: 'ice@gmail.com',
+  //       balance: 50
+  //     }
+  //   ];
+  // }
 
-  getbalance() {
+  public getBalance(): any {
     return 50;
   }
 
-  public getClientBalance(client: Client): Observable<Number>{
-    return this.http.get<Number>(`${this.Url}/clientId/${client.name}`);
+  public getClientBalance(client: Client): Observable<any>{
+    return this.http.get<any>(`${this.Url}/clientId/${client.name}`);
   }
-  
+
 }
 
 
