@@ -1,0 +1,30 @@
+<form>
+  <div class="form-group form-inline">
+      Full text search: <input class="form-control ml-2" type="text" [formControl]="filter"/>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Portfolio</th>
+    <th scope="col">Product</th>
+    <th scope="col">Quantity</th>
+    <!-- <th scope="col">Total Value</th> -->
+    <th scope="col">Side</th>
+    <th scope="col">Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let clientorder of clientorders$ | async; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td><ngb-highlight [result]="trade.portfolio | number" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="trade.product" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="trade.quantity | number" [term]="filter.value"></ngb-highlight></td>
+    <!-- <td><ngb-highlight [result]="trade.totalvalue | number" [term]="filter.value"></ngb-highlight></td> -->
+    <td><ngb-highlight [result]="trade.side" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="trade.status" [term]="filter.value"></ngb-highlight></td>
+  </tr>
+  </tbody>
+</table>
