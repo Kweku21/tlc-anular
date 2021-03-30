@@ -18,7 +18,8 @@ import { MarketDataComponent } from './components/market-data/market-data.compon
 import { TradeHistoryComponent } from './components/trade-history/trade-history.component';
 import { AdminLoginComponent } from './admin/components/admin-login/admin-login.component';
 import { AdminHomeComponent } from './admin/components/admin-home/admin-home.component';
-import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
+import { AdminClientTradesComponent } from './admin/components/admin-client-trades/admin-client-trades.component';
+import { ReportComponent } from './admin/components/report/report.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { DashboardComponent } from './admin/components/dashboard/dashboard.compo
     TradeHistoryComponent,
     AdminLoginComponent,
     AdminHomeComponent,
-    DashboardComponent,
+    AdminClientTradesComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
