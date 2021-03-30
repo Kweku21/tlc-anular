@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ClientOrder } from '../../domain/client-order'
+import { ClientOrder } from '../../model/client-order'
 import {HttpClient} from "@angular/common/http"
 import { Observable } from 'rxjs';
 

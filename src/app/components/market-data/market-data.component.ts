@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MarketDataService } from 'src/app/services/market-data/market.data.service';
-import { MarketData } from 'src/app/domain/marketdata';
+import { MarketData } from 'src/app/model/marketdata';
 
 @Component({
   selector: 'app-market-data',

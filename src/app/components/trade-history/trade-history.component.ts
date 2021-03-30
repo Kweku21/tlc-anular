@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { getInterpolationArgsLength } from '@angular/compiler/src/render3/view/util';
-import { ClientOrder} from '../../domain/client-order'
+import { ClientOrder} from '../../model/client-order'
 import { TradeOrdersService } from '../../services/trade-orders/trade-orders.service'
 
 
