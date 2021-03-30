@@ -4,6 +4,7 @@ import {BehaviorSubject} from 'rxjs';
 import {Client} from '../model/data/Client';
 import { Portfolio } from '../model/data/Portfolio';
 import {Message} from '../model/response/Message';
+import {User} from '../model/admin/User';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class DataService {
 
   public client: Client;
   public message: Message;
+  public admin: User;
   public portfolios: Portfolio[];
 
   private messageSource = new BehaviorSubject<Message>(null);
@@ -19,6 +21,9 @@ export class DataService {
 
   private portfolioSource = new BehaviorSubject<Portfolio[]>(null);
   currentPortfolio = this.portfolioSource.asObservable();
+
+  private adminSource = new BehaviorSubject<Message>(null);
+  currentAdmin = this.adminSource.asObservable();
 
   constructor() { }
 
@@ -34,6 +39,17 @@ export class DataService {
     return this.client;
   }
 
+  public setAdmin(admin: User): void{
+    // @ts-ignore
+    localStorage.setItem('admin', JSON.stringify(admin));
+    // this.clientSource.next(client);
+  }
+
+  public getAdmin(): User{
+    this.admin = JSON.parse(localStorage.getItem('admin'));
+    return this.admin;
+  }
+
   // tslint:disable-next-line:typedef
   public setMessage(message: Message): void{
     this.messageSource.next(message);
@@ -45,17 +61,17 @@ export class DataService {
   }
 
   public addPortfolio(portfolio: Portfolio): void {
-    let portfolios = this.getPortfolio(); 
+    const portfolios = this.getPortfolio();
     portfolios.push(portfolio);
     this.setPortfolio(portfolios);
   }
 
   public setPortfolio(portfolios: Portfolio[]): void{
-    this.portfolioSource.next(portfolios);
+    localStorage.setItem('portfolios', JSON.stringify(portfolios));
   }
 
   public getPortfolio(): Portfolio[] {
-    this.currentPortfolio.subscribe(portfolios => this.portfolios = portfolios);
+    this.portfolios = JSON.parse(localStorage.getItem('portfolios'));
     return this.portfolios;
   }
 }

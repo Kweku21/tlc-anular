@@ -7,6 +7,8 @@ import {PortfolioComponent} from './components/portfolio/portfolio.component';
 import {ProductComponent} from './components/product/product.component';
 import { MarketDataService } from './services/market-data/market.data.service';
 import { OrderService } from './services/order/order.service';
+import {AdminLoginComponent} from './admin/components/admin-login/admin-login.component';
+import {AdminHomeComponent} from './admin/components/admin-home/admin-home.component';
 const routes: Routes = [
   {path: '', component: LoginFormComponent},
   {path: 'login', component: LoginFormComponent},
@@ -14,6 +16,12 @@ const routes: Routes = [
   {path: 'home', component: BodyComponent},
   {path: 'portfolio', component: PortfolioComponent},
   { path: 'portfolio/:id/products', component: ProductComponent },
+
+  /**
+   * Admin Routes
+   */
+  {path: 'admin', component: AdminHomeComponent},
+  {path: 'admin/login', component: AdminLoginComponent},
 ];
 
 @NgModule({

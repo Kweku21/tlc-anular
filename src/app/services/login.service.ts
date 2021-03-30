@@ -9,7 +9,6 @@ import {LoginRequest} from '../model/requests/LoginRequest';
 })
 export class LoginService {
 
-  private apiBaseUrl = 'https://clientconnection.herokuapp.com/api/client';
   private apiBaseUrl2 = 'https://tradeenginedb.herokuapp.com/api/v1/client';
 
   constructor(

@@ -16,7 +16,8 @@ import { BalanceComponent } from './components/balance/balance.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
 import { MarketDataComponent } from './components/market-data/market-data.component';
 import { TradeHistoryComponent } from './components/trade-history/trade-history.component';
-import { LoginComponent } from './admin/components/login/login.component';
+import { AdminLoginComponent } from './admin/components/admin-login/admin-login.component';
+import { AdminHomeComponent } from './admin/components/admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './admin/components/login/login.component';
     PlaceOrderComponent,
     MarketDataComponent,
     TradeHistoryComponent,
-    LoginComponent
+    AdminLoginComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,
