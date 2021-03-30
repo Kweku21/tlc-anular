@@ -16,13 +16,10 @@ import { BalanceComponent } from './components/balance/balance.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
 import { MarketDataComponent } from './components/market-data/market-data.component';
 import { TradeHistoryComponent } from './components/trade-history/trade-history.component';
-<<<<<<< HEAD
 import { AdminLoginComponent } from './admin/components/admin-login/admin-login.component';
 import { AdminHomeComponent } from './admin/components/admin-home/admin-home.component';
-=======
-import { LoginComponent } from './admin/components/login/login.component';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
->>>>>>> f328231423c2e49f55ca3536d05098e54a549432
+
 
 @NgModule({
   declarations: [
@@ -37,13 +34,9 @@ import { DashboardComponent } from './admin/components/dashboard/dashboard.compo
     PlaceOrderComponent,
     MarketDataComponent,
     TradeHistoryComponent,
-<<<<<<< HEAD
     AdminLoginComponent,
     AdminHomeComponent,
-=======
-    LoginComponent,
-    DashboardComponent
->>>>>>> f328231423c2e49f55ca3536d05098e54a549432
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
