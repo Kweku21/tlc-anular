@@ -1,5 +1,4 @@
 <div class="place-order">
-    <h1>Welcome back, Kalyssa.</h1>
     <div class="form-group">
         <form [formGroup]="orderForm" (ngSubmit)="submitOrder(orderForm)">
           <div *ngIf="hasSent"><card><p style="color: green">Order placed successfully</p></card></div>
@@ -7,29 +6,29 @@
           
           <div class="form-group row">
               <label for="product" class="form-label">Product</label>
-              <div class="col-sm-4">
+              <div class="form-in col-sm-8">
                 <input formControlName="product" type="text" class="form-control"/>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="price" class="form-label">Price</label>
-              <div class="col-sm-4">
+              <div class="col-sm-8">
                 <input formControlName="price" type="number" class="form-control"/>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="quantity" class="form-label">Quantity</label>
-              <div class="col-sm-4">
+              <div class="col-sm-8">
                 <input formControlName="quantity" type="text" class="form-control"/>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="side" class="form-label">Side:</label>
-              <div class="col-sm-4">
-                <select class="form-control" formControlName="side">
+              <div class="col-sm-8">
+                <select class="form-in form-control" formControlName="side">
                     <option>BUY</option>
                     <option>SELL</option>
                 </select>
@@ -38,7 +37,7 @@
 
             <div class="form-group row">
               <label for="portfolio" class="form-label">Portfolio:</label>
-              <div class="col-sm-4">
+              <div class="form-in col-sm-8">
                 <select class="form-control" formControlName="portfolio" >
                     <option>1</option>
                 </select>
@@ -50,7 +49,7 @@
             </div>
             
             <div>
-                <button class="btn btn-primary">Place Order</button>
+                <button class="btn btn-dark">Place Order</button>
             </div>
             
         </form>
