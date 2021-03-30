@@ -39,7 +39,8 @@ export class AdminLoginComponent implements OnInit {
         this.route.navigate(['/admin']).then(r => console.log(r));
       },
       (error => {
-        alert(error.message);
+        alert('Invalid credentials');
+        // alert(error.message);
       })
     );
   }
