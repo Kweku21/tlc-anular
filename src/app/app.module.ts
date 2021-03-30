@@ -9,17 +9,19 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BalanceComponent } from './components/balance/balance.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     NavbarComponent,
-    BalanceComponent
+    BalanceComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
