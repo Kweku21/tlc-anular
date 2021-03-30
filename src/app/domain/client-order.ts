@@ -1,5 +1,5 @@
 export class ClientOrder {
-    clientorderid: number;
+    clientorderId: number;
     product: string;
     price: number;
     quantity: number;
@@ -7,5 +7,5 @@ export class ClientOrder {
     validationstatus: string;
     status: string;
     clientid: number;
-    portfolioid: number;
+    portfolioId: number;
 }
