@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 // @ts-ignore
 import {BehaviorSubject} from 'rxjs';
+import { User } from '../model/admin/User';
 import {Client} from '../model/data/Client';
 import { Portfolio } from '../model/data/Portfolio';
 import {Message} from '../model/response/Message';
@@ -12,6 +13,7 @@ export class DataService {
 
   public client: Client;
   public message: Message;
+  public admin: User;
   public portfolios: Portfolio[];
 
   private messageSource = new BehaviorSubject<Message>(null);
@@ -21,6 +23,17 @@ export class DataService {
   currentPortfolio = this.portfolioSource.asObservable();
 
   constructor() { }
+
+  public setAdmin(admin: User): void{
+    // @ts-ignore
+    localStorage.setItem('admin', JSON.stringify(admin));
+    // this.clientSource.next(client);
+  }
+
+  public getAdmin(): User{
+    this.admin = JSON.parse(localStorage.getItem('admin'));
+    return this.admin;
+  }
 
   // tslint:disable-next-line:typedef
   public setClient(client: Client){
