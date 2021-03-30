@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from 'src/app/services/order.service';
+import { OrderService } from 'src/app/services/order/order.service';
 import { NgForm } from '@angular/forms';
 import { FormControl, FormGroup } from '@angular/forms';
 

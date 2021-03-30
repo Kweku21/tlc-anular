@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MarketDataService } from './services/market.data.service';
-import { OrderService } from './services/order.service';
+import { MarketDataService } from './services/market-data/market.data.service';
+import { OrderService } from './services/order/order.service';
 
 const routes: Routes = [];
 

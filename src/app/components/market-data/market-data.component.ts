@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MarketDataService } from 'src/app/services/market.data.service';
+import { MarketDataService } from 'src/app/services/market-data/market.data.service';
 import { MarketData } from 'src/app/domain/marketdata';
 
 @Component({
