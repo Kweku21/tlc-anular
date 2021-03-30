@@ -48,7 +48,7 @@
               <label for="portfolio" class="form-label">Portfolio:</label>
               <div class="form-in col-sm-8">
                 <select class="form-control" formControlName="portfolio" >
-                    <option>1</option>
+                    <option *ngFor="let name of portfolioMap | keyvalue">{{name.key}}</option>
                 </select>
               </div>
             </div>

@@ -4,5 +4,6 @@ export class Client{
   name: string;
   email: string;
   balance: number;
+  portfolios: Array<number>;
 
 }

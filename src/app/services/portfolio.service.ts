@@ -16,6 +16,10 @@ export class PortfolioService {
     private http: HttpClient,
   ) { }
 
+  public getPortfolioNames(id: number) {
+    return this.http.get<any>(`https://tradeenginedb.herokuapp.com/api/v1/portfolio/id/${id}`)
+  }
+
   public getAllClientPortfolios(client: Client): Observable<Portfolio[]>{
     return this.http.get<Portfolio[]>(`${this.apiBaseUrl}/client/${client.clientId}`);
   }
