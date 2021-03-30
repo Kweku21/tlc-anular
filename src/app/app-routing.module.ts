@@ -5,7 +5,8 @@ import {RegisterFormComponent} from './components/register-form/register-form.co
 import {BodyComponent} from './components/body/body.component';
 import {PortfolioComponent} from './components/portfolio/portfolio.component';
 import {ProductComponent} from './components/product/product.component';
-
+import { MarketDataService } from './services/market-data/market.data.service';
+import { OrderService } from './services/order/order.service';
 const routes: Routes = [
   {path: '', component: LoginFormComponent},
   {path: 'login', component: LoginFormComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [OrderService, MarketDataService]
 })
 export class AppRoutingModule { }

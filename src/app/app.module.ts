@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,9 @@ import { ProductComponent } from './components/product/product.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BalanceComponent } from './components/balance/balance.component';
+import { PlaceOrderComponent } from './components/place-order/place-order.component';
+import { MarketDataComponent } from './components/market-data/market-data.component';
+import { TradeHistoryComponent } from './components/trade-history/trade-history.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +27,17 @@ import { BalanceComponent } from './components/balance/balance.component';
     ProductComponent,
     NavbarComponent,
     BalanceComponent,
+    PlaceOrderComponent,
+    MarketDataComponent,
+    TradeHistoryComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
