@@ -1,24 +1,36 @@
 <div class="container">
-  <div class="row col-md-6 col-md-offset-2 custyle">
-    <table class="table table-striped custab">
-      <thead>
-      <span  data-toggle="modal" data-target="#addPortfolio" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Portfolio</span>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th class="text-center">Action</th>
-      </tr>
-      </thead>
-      <tr *ngFor="let portfolio of portfolios">
-        <td>{{portfolio.portfolioId}}</td>
-        <td>{{portfolio.name}}</td>
-        <td class="text-center">
-          <span routerLink="/portfolio/{{portfolio.portfolioId}}/products" class="btn btn-primary">View Products</span>
-          <span class="btn btn-danger" (click)="deletePortfolio(portfolio)">Delete</span>
-        </td>
-      </tr>
+    <app-navbar></app-navbar>
+</div>
+<br>
 
-    </table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8"> 
+        <table class="table table-striped custab">
+          <thead class="thead-dark">
+          <span  data-toggle="modal" data-target="#addPortfolio" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Portfolio</span>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th class="text-center">Action</th>
+          </tr>
+          </thead>
+          <tr *ngFor="let portfolio of portfolios">
+            <td>{{portfolio.portfolioId}}</td>
+            <td>{{portfolio.name}}</td>
+            <td class="text-center">
+              <span routerLink="/portfolio/{{portfolio.portfolioId}}/products" class="btn btn-light"
+              >View Products</span>
+              <span class="btn btn-danger" (click)="deletePortfolio(portfolio)">Delete</span>
+            </td>
+          </tr>
+    
+        </table>
+
+    </div>
+    <div class="col-sm-4">
+      <app-balance></app-balance>
+    </div>
   </div>
 
   <!-- Modal -->
