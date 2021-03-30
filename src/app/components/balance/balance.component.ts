@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from "../../model/Client";
 import { BalanceService } from '../../services/balance.service';
 
 
