@@ -17,6 +17,7 @@ import { PlaceOrderComponent } from './components/place-order/place-order.compon
 import { MarketDataComponent } from './components/market-data/market-data.component';
 import { TradeHistoryComponent } from './components/trade-history/trade-history.component';
 import { LoginComponent } from './admin/components/login/login.component';
+import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './admin/components/login/login.component';
     PlaceOrderComponent,
     MarketDataComponent,
     TradeHistoryComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
