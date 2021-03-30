@@ -3,7 +3,9 @@
     <div class="form-group">
         <form [formGroup]="orderForm" (ngSubmit)="submitOrder(orderForm)">
           <div *ngIf="hasSent"><card><p style="color: green">Order placed successfully</p></card></div>
-            <div class="form-group row">
+          <div *ngIf="hasSent"><card><p style="color: green">Order placed successfully</p></card></div>
+          
+          <div class="form-group row">
               <label for="product" class="form-label">Product</label>
               <div class="col-sm-4">
                 <input formControlName="product" type="text" class="form-control"/>

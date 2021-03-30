@@ -1,11 +1,15 @@
-<div>
-    <h3>Exchange 1</h3>
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor="let item of ex1">{{item.TICKER}}, {{item.BID_PRICE}}</li>
-    </ul>    
+<div class="container ">
+    <div class="mt-3">
+        <h3>Exchange 1</h3>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of ex1">{{item.TICKER}}, {{item.BID_PRICE}}</li>
+        </ul>  
+    </div>  
 
-    <h3>Exchange 2</h3>
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor="let item of ex2">{{item.TICKER}}, {{item.BID_PRICE}}</li>
-    </ul>>
+    <div class="mt-3">
+        <h3>Exchange 2</h3>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of ex2">{{item.TICKER}}, {{item.BID_PRICE}}</li>
+        </ul>
+    </div>
 </div>

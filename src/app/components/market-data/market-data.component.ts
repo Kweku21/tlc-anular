@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from 'src/app/domain/order';
-import { map } from 'rxjs/operators';
 import { MarketDataService } from 'src/app/services/market.data.service';
+import { MarketData } from 'src/app/domain/marketdata';
 
 @Component({
   selector: 'app-market-data',
@@ -10,8 +9,8 @@ import { MarketDataService } from 'src/app/services/market.data.service';
 })
 export class MarketDataComponent implements OnInit {
 
-  ex1;
-  ex2;
+  ex1: MarketData[];
+  ex2: MarketData[];
 
   constructor(public marketDataService: MarketDataService) { }
 
