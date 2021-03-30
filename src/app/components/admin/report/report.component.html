@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+      <table class="table table-striped custab">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Message</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let report of reports">
+          <td>{{report.id}}</td>
+          <td>{{report.message}}</td>
+        </tr>
+  
+      </table>
+    </div>
+  </div>

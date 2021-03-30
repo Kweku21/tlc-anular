@@ -18,6 +18,8 @@ import { MarketDataComponent } from './components/market-data/market-data.compon
 import { TradeHistoryComponent } from './components/trade-history/trade-history.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
+import { ReportComponent } from './components/admin/report/report.component';
+import { AdminClientTradesComponent } from './components/admin/admin-client-trades/admin-client-trades.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AdminLoginComponent } from './components/admin/admin-login/admin-login.
     MarketDataComponent,
     TradeHistoryComponent,
     AdminHomeComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    AdminClientTradesComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,

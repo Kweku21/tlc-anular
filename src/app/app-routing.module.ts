@@ -9,6 +9,7 @@ import { MarketDataService } from './services/market-data/market.data.service';
 import { OrderService } from './services/order/order.service';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
+import { ReportComponent } from './components/admin/report/report.component';
 
 const routes: Routes = [
   {path: '', component: LoginFormComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
    * Admin Routes
    */
   {path: 'admin', component: AdminHomeComponent},
+  {path: 'admin/reports', component: ReportComponent},
   {path: 'admin/login', component: AdminLoginComponent},
   {path: 'admin/home', component: AdminHomeComponent}
 ];
