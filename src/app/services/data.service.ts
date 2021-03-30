@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 // @ts-ignore
 import {BehaviorSubject} from 'rxjs';
 import {Client} from '../model/data/Client';
+import { Portfolio } from '../model/data/Portfolio';
 import {Message} from '../model/response/Message';
 
 @Injectable({
@@ -11,9 +12,13 @@ export class DataService {
 
   public client: Client;
   public message: Message;
+  public portfolios: Portfolio[];
 
   private messageSource = new BehaviorSubject<Message>(null);
   currentMessage = this.messageSource.asObservable();
+
+  private portfolioSource = new BehaviorSubject<Portfolio[]>(null);
+  currentPortfolio = this.portfolioSource.asObservable();
 
   constructor() { }
 
@@ -37,5 +42,20 @@ export class DataService {
   public getMessage(): Message{
     this.currentMessage.subscribe(message => this.message = message);
     return this.message;
+  }
+
+  public addPortfolio(portfolio: Portfolio): void {
+    let portfolios = this.getPortfolio(); 
+    portfolios.push(portfolio);
+    this.setPortfolio(portfolios);
+  }
+
+  public setPortfolio(portfolios: Portfolio[]): void{
+    this.portfolioSource.next(portfolios);
+  }
+
+  public getPortfolio(): Portfolio[] {
+    this.currentPortfolio.subscribe(portfolios => this.portfolios = portfolios);
+    return this.portfolios;
   }
 }

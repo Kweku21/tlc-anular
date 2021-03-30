@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
+import {DataService} from '../services/data.service';
 
 
 @Injectable({
@@ -11,12 +11,11 @@ export class BalanceService  {
 
   clientBalance: Number; 
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient, private data: DataService,) { }
 
 
-  public getbalance(): any {
-    return 50;
-    // return localStorage.getItem("clientBalance")
+  public getbalance(): Number {
+    return this.data.getClient().balance
   }
 
   // public getClientBalance(client: Client): Observable<Number>{

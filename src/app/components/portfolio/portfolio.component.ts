@@ -53,6 +53,7 @@ export class PortfolioComponent implements OnInit {
 
       (response: Portfolio[]) => {
         this.portfolios = response;
+        this.data.setPortfolio(response)
         // console.log(response);
       },
       (error => {
@@ -83,6 +84,7 @@ export class PortfolioComponent implements OnInit {
       (response: any) => {
         // @ts-ignore
         this.getAllPortfoliosByClient(this.client);
+        
         // console.log(response);
         // this.portfolios.push(response);
       },

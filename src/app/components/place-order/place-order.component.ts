@@ -20,18 +20,17 @@ export class PlaceOrderComponent implements OnInit {
       price: new FormControl(""),
       quantity: new FormControl(""),
       side: new FormControl(""),
-      portfolio: new FormControl(""),
-      clientId: new FormControl("")
+      portfolio: new FormControl("")
     }) 
   }
 
   submitOrder(form: FormGroup){
-    form.patchValue({
-      "clientId" : 2
-    })
+    // form.patchValue({
+    //   "clientId" : 2
+    // })
     console.log(form.value)
     
-    this.orderService.placeOrder(form.value);
+    // this.orderService.placeOrder(form.value);
   }
 
 }
