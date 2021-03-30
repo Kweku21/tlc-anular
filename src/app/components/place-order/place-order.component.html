@@ -1,32 +1,33 @@
 <div class="place-order">
     <h1>Welcome back, Kalyssa.</h1>
     <div class="form-group">
-        <form #form="ngForm" (ngSubmit)="submitOrder(form)">
+        <form [formGroup]="orderForm" (ngSubmit)="submitOrder(orderForm)">
+          <div *ngIf="hasSent"><card><p style="color: green">Order placed successfully</p></card></div>
             <div class="form-group row">
               <label for="product" class="form-label">Product</label>
               <div class="col-sm-4">
-                <input name="product" type="text" class="form-control" ngModel/>
+                <input formControlName="product" type="text" class="form-control"/>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="price" class="form-label">Price</label>
               <div class="col-sm-4">
-                <input name="price" type="number" class="form-control" ngModel/>
+                <input formControlName="price" type="number" class="form-control"/>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="quantity" class="form-label">Quantity</label>
               <div class="col-sm-4">
-                <input name="quantity" type="text" class="form-control" ngModel/>
+                <input formControlName="quantity" type="text" class="form-control"/>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="side" class="form-label">Side:</label>
               <div class="col-sm-4">
-                <select class="form-control" name="side" ngModel>
+                <select class="form-control" formControlName="side">
                     <option>BUY</option>
                     <option>SELL</option>
                 </select>
@@ -36,11 +37,16 @@
             <div class="form-group row">
               <label for="portfolio" class="form-label">Portfolio:</label>
               <div class="col-sm-4">
-                <select class="form-control" name="portfolio" ngModel>
-                    <option>Portfolio A</option>
+                <select class="form-control" formControlName="portfolio" >
+                    <option>1</option>
                 </select>
               </div>
             </div>
+            
+            <div class="form-group-row">
+              <input [hidden]="true" value="1" formControlName="clientId" type="number" class="form-control"/>
+            </div>
+            
             <div>
                 <button class="btn btn-primary">Place Order</button>
             </div>
