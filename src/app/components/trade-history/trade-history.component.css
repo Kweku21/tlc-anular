@@ -1,3 +1,7 @@
 #trade-history{
     margin-top: 0.8rem;
 }
+
+#trade-table-head {
+    background-color: #0004ad;
+}

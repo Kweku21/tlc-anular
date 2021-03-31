@@ -1,9 +1,13 @@
 .form-group{
-    padding-left: 0.7rem;
+    padding-left: 0.rem;
     margin-top: 1rem;
 }
 
-.form-in {
-    margin-left: 0.8rem;
+#place-order {
+    padding: 0.8rem !important;
+    border-color: #004aad;
+}
 
+#place-order:hover {
+    background-color: #004aad;
 }
