@@ -12,11 +12,14 @@ body {
 
 .sidenav {
   height: 100%;
-  background-color: #000;
+  background-color: #004aad;
   overflow-x: hidden;
   padding-top: 20px;
 }
 
+#greeting {
+  margin-bottom: 0.5rem;
+}
 
 .main {
   padding: 0px 10px;

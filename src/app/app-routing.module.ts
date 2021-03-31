@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'home', component: BodyComponent},
   {path: 'portfolio', component: PortfolioComponent},
   { path: 'portfolio/:id/products', component: ProductComponent },
+  {path: 'logout', component: LoginFormComponent},
 
   /**
    * Admin Routes
