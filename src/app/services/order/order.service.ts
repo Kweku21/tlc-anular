@@ -17,7 +17,7 @@ export class OrderService {
             },
             error: error => {
                 this.errorMessage = error.message;
-                console.error("whoops!");
+                console.log(this.errorMessage)
             }
         })
     }

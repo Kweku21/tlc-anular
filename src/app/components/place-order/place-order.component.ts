@@ -37,6 +37,7 @@ export class PlaceOrderComponent implements OnInit {
       quantity: new FormControl(""),
       side: new FormControl(""),
       portfolio: new FormControl(""),
+      portfolioId: new FormControl(""),
       clientId: new FormControl("")
     }) 
     this.client = this.dataService.getClient()
@@ -62,12 +63,14 @@ export class PlaceOrderComponent implements OnInit {
   }
 
   submitOrder(form: FormGroup){
+    console.log(form.value)
     form.patchValue({
-      "clientId" : this.clientId
+      "clientId" : this.clientId,
+      "portfolioId": this.portfolioMap.get(form.value.portfolio)
     })
     console.log(form.value)
 
-    // this.orderService.placeOrder(form.value);
+    this.orderService.placeOrder(form.value);
   }
 
 }
