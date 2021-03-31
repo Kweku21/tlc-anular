@@ -30,7 +30,7 @@ export class ReportComponent implements OnInit {
       const dataType = report.message.substr(0, firstBracket);
       const message = report.message.substr(lastBracket + 1, reports[0].message.length);
 
-      const displayReport = new ReportDisplay(reports[0].id, dataType, data, message);
+      const displayReport = new ReportDisplay(report.id, dataType, data, message);
       // console.log(displayReport);
       this.displayReports.push(displayReport);
     });
