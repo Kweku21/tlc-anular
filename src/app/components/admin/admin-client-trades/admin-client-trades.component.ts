@@ -37,12 +37,12 @@ export class AdminClientTradesComponent implements OnInit {
 
     this.tradeService.searchTradeByClient(client).subscribe(
       (response: ClientOrder[]) => {
-        this.clientorders = response;
         // console.log(response);
         // tslint:disable-next-line:triple-equals
         if (response.length == 0){
           alert('No trade for client');
         }
+        this.clientorders = response.slice(0, 10);
       },
       (error => {
         alert('Unable to get trade order by client');

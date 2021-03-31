@@ -1,19 +1,14 @@
-<div id="trade-history">
-  <div>
-    <app-admin-navbar></app-admin-navbar>
-  </div>
+<div id="client-history">
     <form>
       <div class="form-group form-inline">
         <form #clientTradeForm="ngForm" (ngSubmit)="getClientByEmail(clientTradeForm)">
           <label>Search Client trades: </label><input ngModel class="form-control ml-2" type="email" name="client" id="client" placeholder="Enter Client Email"/> <input type="submit" [disabled]="clientTradeForm.invalid" name="Search" value="Search">
         </form>
-
       </div>
     </form>
 
-  <div class="row col-md-6 col-md-offset-2 custyle">
-    <table class="table table-striped custab">
-      <thead>
+    <table class="table table-striped">
+      <thead >
       <tr>
         <th scope="col">#</th>
         <th scope="col">Portfolio</th>
@@ -34,5 +29,4 @@
       </tr>
 
     </table>
-  </div>
   </div>
