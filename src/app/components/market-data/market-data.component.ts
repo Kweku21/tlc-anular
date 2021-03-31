@@ -9,6 +9,9 @@ import { MarketData } from 'src/app/model/marketdata';
 })
 export class MarketDataComponent implements OnInit {
 
+  errorLoadingOne: boolean = false;
+  errorLoadingTwo: boolean = false;
+
   ex1: MarketData[];
   ex2: MarketData[];
 
@@ -19,13 +22,23 @@ export class MarketDataComponent implements OnInit {
   }
 
   load() {
-    this.marketDataService.getMarketData().subscribe(
+    this.marketDataService.getExchangeOneData().subscribe(
       data => {
-        // can use map here if decomposing into object?
-        this.ex1 = data[0]
-        this.ex2 = data[1]
-      }
+        this.ex1 = data
+      }, (error => {
+        console.error(error)
+        this.errorLoadingOne = true;
+      })
     );
+
+    this.marketDataService.getExchangeTwoData().subscribe(
+      data => {
+        this.ex2 = data
+      }, (error => {
+        console.error(error)
+        this.errorLoadingTwo = true;
+      })
+    )
   }
 
 }

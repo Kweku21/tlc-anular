@@ -3,9 +3,8 @@
 </div>
 <br>
 
-
 <div class="container">
-  <h2>Welcome {{client?.name}}</h2>
+  <h2 id="greeting">Welcome, <b>{{client?.name}}</b></h2>
   <div class="row">
     <div class="col-sm-8"> 
       <app-place-order></app-place-order>
@@ -14,8 +13,9 @@
       <app-balance></app-balance>
     </div>
   </div>
-  <div class="row">
+  <div id="trade-history" class="row">
     <div class="col-sm-8">
+      <h3>Your Trade History</h3>
       <trade-history></trade-history>
     </div>
     <div class="col-sm-4">

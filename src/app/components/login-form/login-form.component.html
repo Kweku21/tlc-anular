@@ -1,6 +1,6 @@
 <div class="sidenav">
   <div class="login-main-text">
-    <h2>Trade Engine<br> Login Page</h2>
+    <h2>Zeven Trading <br> Platform</h2>
   </div>
 </div>
 <div class="main">
@@ -18,9 +18,11 @@
           <label>Password</label>
           <input ngModel name="password" type="password" class="form-control" required placeholder="Password">
         </div>
-        <div class="row">
-          <button [disabled]="loginForm.invalid" type="submit" class="btn btn-success">Login</button>
-          <button  routerLink="/register" class="btn btn-danger">Register</button>
+        <div class="form-group">
+          <div >
+            <h6>New user? Register <a routerLink="/register">here</a></h6>
+            <button id="login" [disabled]="loginForm.invalid" type="submit" class="btn btn-success">Login</button>
+          </div>
         </div>
 
       </form>

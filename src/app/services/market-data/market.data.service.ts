@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { forkJoin, timer, Observable, Subject } from 'rxjs';
+import { forkJoin, timer, Observable, Subject, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { MarketData } from '../../model/marketdata';
-import { takeUntil, retry, share, switchMap } from 'rxjs/operators';
+import { takeUntil, retry, share, switchMap, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class MarketDataService {
@@ -13,18 +13,26 @@ export class MarketDataService {
     private stopPolling = new Subject();
 
     constructor(private http: HttpClient) {
+         timer(1, 3000).pipe(
+            switchMap(() => this.getExchangeOneData()),
+            retry(),
+            share(),
+            takeUntil(this.stopPolling)
+        )
+
         timer(1, 3000).pipe(
-            switchMap(() => this.getMarketData()),
+            switchMap(() => this.getExchangeTwoData()),
             retry(),
             share(),
             takeUntil(this.stopPolling)
         )
     }
 
-    getMarketData() {
-        return forkJoin<MarketData[], MarketData[]>(
-            this.http.get(this.exchangeOneUrl),
-            this.http.get(this.exchangeTwoUrl)
-        );
+    getExchangeOneData() {
+        return this.http.get<MarketData[]>(this.exchangeOneUrl);
+    }
+
+    getExchangeTwoData(){
+        return this.http.get<MarketData[]>(this.exchangeTwoUrl);
     }
 }

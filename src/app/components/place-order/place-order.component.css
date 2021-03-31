@@ -5,9 +5,12 @@
 
 #place-order {
     padding: 0.8rem !important;
-    border-color: #004aad;
+    background-color: #004aad;
+    color: white;
 }
 
 #place-order:hover {
-    background-color: #004aad;
+    background-color: white;
+    color: #004aad;
+    border-color: #004aad;
 }

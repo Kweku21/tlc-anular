@@ -5,10 +5,14 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-sm-8">
+      <span id="add-portfolio" data-toggle="modal" data-target="#addPortfolio" class="btn btn-primary btn-block"><b>+</b> Add new Portfolio</span>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-8"> 
         <table class="table table-striped custab">
-          <thead class="thead-dark">
-          <span  data-toggle="modal" data-target="#addPortfolio" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Portfolio</span>
+          <thead id="trade-table-head">
           <tr>
             <th>ID</th>
             <th>Name</th>
@@ -19,7 +23,7 @@
             <td>{{portfolio.portfolioId}}</td>
             <td>{{portfolio.name}}</td>
             <td class="text-center">
-              <span routerLink="/portfolio/{{portfolio.portfolioId}}/products" class="btn btn-light"
+              <span id="view-products" routerLink="/portfolio/{{portfolio.portfolioId}}/products" class="btn btn-outline-light"
               >View Products</span>
               <span class="btn btn-danger" (click)="deletePortfolio(portfolio)">Delete</span>
             </td>
