@@ -5,7 +5,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-8"> 
+    <div class="col-sm-8">
         <table class="table table-striped custab">
           <thead class="thead-dark">
           <span  data-toggle="modal" data-target="#addPortfolio" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Portfolio</span>
@@ -19,12 +19,12 @@
             <td>{{portfolio.portfolioId}}</td>
             <td>{{portfolio.name}}</td>
             <td class="text-center">
-              <span routerLink="/portfolio/{{portfolio.portfolioId}}/products" class="btn btn-light"
+              <span routerLink="/portfolio/{{portfolio.portfolioId}}/products" class="btn btn-primary"
               >View Products</span>
               <span class="btn btn-danger" (click)="deletePortfolio(portfolio)">Delete</span>
             </td>
           </tr>
-    
+
         </table>
 
     </div>
