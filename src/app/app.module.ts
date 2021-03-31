@@ -20,6 +20,7 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { ReportComponent } from './components/admin/report/report.component';
 import { AdminClientTradesComponent } from './components/admin/admin-client-trades/admin-client-trades.component';
+import { AdminNavbarComponent } from './components/admin/admin-navbar/admin-navbar.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AdminClientTradesComponent } from './components/admin/admin-client-trad
     AdminLoginComponent,
     AdminClientTradesComponent,
     ReportComponent,
+    AdminNavbarComponent,
   ],
   imports: [
     BrowserModule,

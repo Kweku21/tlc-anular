@@ -1,17 +1,28 @@
-<div class="container">
+<div>
+  <div>
+    <app-admin-navbar></app-admin-navbar>
+  </div>
+
+  <div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle">
       <table class="table table-striped custab">
-        <thead>
+        <thead class="thead-dark">
         <tr>
           <th>ID</th>
           <th>Message</th>
+          <th>Object</th>
+          <th>Type</th>
         </tr>
         </thead>
-        <tr *ngFor="let report of reports">
+        <tr *ngFor="let report of displayReports">
           <td>{{report.id}}</td>
           <td>{{report.message}}</td>
+          <td>{{report.object}}</td>
+          <td>{{report.type}}</td>
         </tr>
-  
+
       </table>
     </div>
   </div>
+</div>
+

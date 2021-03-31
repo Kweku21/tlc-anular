@@ -1,5 +1,5 @@
 export class ClientOrder {
-    clientorderId: number;
+    clientOrderId: number;
     product: string;
     price: number;
     quantity: number;
