@@ -9,11 +9,15 @@ import { Observable } from 'rxjs';
 export class TradeOrdersService {
 
   baseurl = 'https://clientconnection.herokuapp.com/api/order/client'
-
+  
+  ngOnInit(){
+    
+  }
   constructor(private http : HttpClient) { }
 
-  GetClientOrders(): Observable<ClientOrder[]>{
-    return this.http.get<ClientOrder[]>(this.baseurl+'/'+1);
+
+  GetClientOrders(clientId : number): Observable<ClientOrder[]>{
+    return this.http.get<ClientOrder[]>(this.baseurl+'/'+clientId);
   }
 
 }
