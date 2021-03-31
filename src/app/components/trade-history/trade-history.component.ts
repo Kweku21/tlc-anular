@@ -7,7 +7,8 @@ import { map, startWith } from 'rxjs/operators';
 import { getInterpolationArgsLength } from '@angular/compiler/src/render3/view/util';
 import { ClientOrder} from '../../model/client-order'
 import { TradeOrdersService } from '../../services/trade-orders/trade-orders.service'
-
+import { DataService } from 'src/app/services/data.service';
+import { Client } from 'src/app/model/data/Client';
 
 
 @Component({
@@ -19,9 +20,11 @@ export class TradeHistoryComponent {
 
   clientorders$: Observable<ClientOrder[]>;
   filter = new FormControl('');
+  client: Client;
+  clientId: number;
 
   clientorders : ClientOrder[] = []
-  constructor(pipe: DecimalPipe, public tradeservice : TradeOrdersService) {
+  constructor(pipe: DecimalPipe, public tradeservice : TradeOrdersService,public dataService: DataService) {
     this.clientorders$ = this.filter.valueChanges.pipe(
       startWith(''),
       map(text => this.search(text, pipe))
@@ -33,11 +36,16 @@ export class TradeHistoryComponent {
   }
 
   loadClientOrders(){
-    this.tradeservice.GetClientOrders().subscribe((data:any) => {
+    this.setup()
+    this.tradeservice.GetClientOrders(this.clientId).subscribe((data:any) => {
       this.clientorders = data
     })
   }
-
+  setup(){
+    this.client = this.dataService.getClient()
+    this.clientId = this.client.clientId
+    console.log("here")
+  }
   tradefromclient(){
     for (let index = 0; index < this.clientorders.length; index++) {
     }
