@@ -58,7 +58,7 @@ export class DataService {
   }
 
   public addPortfolio(portfolio: Portfolio): void {
-    let portfolios = this.getPortfolio(); 
+    let portfolios = this.getPortfolio();
     portfolios.push(portfolio);
     this.setPortfolio(portfolios);
   }
