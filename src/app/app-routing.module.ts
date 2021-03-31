@@ -10,6 +10,7 @@ import { OrderService } from './services/order/order.service';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { ReportComponent } from './components/admin/report/report.component';
+import {AdminClientTradesComponent} from './components/admin/admin-client-trades/admin-client-trades.component';
 
 const routes: Routes = [
   {path: '', component: LoginFormComponent},
@@ -22,9 +23,10 @@ const routes: Routes = [
   /**
    * Admin Routes
    */
-  {path: 'admin', component: AdminHomeComponent},
-  {path: 'admin/reports', component: ReportComponent},
   {path: 'admin/login', component: AdminLoginComponent},
+  {path: 'admin', component: AdminHomeComponent},
+  {path: 'admin/client-trade', component: AdminClientTradesComponent},
+  {path: 'admin/reports', component: ReportComponent},
   {path: 'admin/home', component: AdminHomeComponent}
 ];
 

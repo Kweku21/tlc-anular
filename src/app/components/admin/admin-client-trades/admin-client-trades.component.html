@@ -1,11 +1,18 @@
 <div id="trade-history">
+  <div>
+    <app-admin-navbar></app-admin-navbar>
+  </div>
     <form>
       <div class="form-group form-inline">
-        Search trades: <input class="form-control ml-2" type="text" [formControl]="filter"/>
+        <form #clientTradeForm="ngForm" (ngSubmit)="getClientByEmail(clientTradeForm)">
+          <label>Search Client trades: </label><input ngModel class="form-control ml-2" type="email" name="client" id="client" placeholder="Enter Client Email"/> <input type="submit" [disabled]="clientTradeForm.invalid" name="Search" value="Search">
+        </form>
+
       </div>
     </form>
-  
-    <table class="table table-striped">
+
+  <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
       <thead>
       <tr>
         <th scope="col">#</th>
@@ -17,16 +24,15 @@
         <th scope="col">Status</th>
       </tr>
       </thead>
-      <tbody>
-      <tr *ngFor="let clientorder of clientorders; index as i">
-        <th scope="row">{{ i + 1 }}</th>
-        <td><ngb-highlight [result]="clientorder.portfolioId | number" [term]="filter.value"></ngb-highlight></td>
-        <td><ngb-highlight [result]="clientorder.product" [term]="filter.value"></ngb-highlight></td>
-        <td><ngb-highlight [result]="clientorder.quantity | number" [term]="filter.value"></ngb-highlight></td>
-        <!-- <td><ngb-highlight [result]="trade.totalvalue | number" [term]="filter.value"></ngb-highlight></td> -->
-        <td><ngb-highlight [result]="clientorder.side" [term]="filter.value"></ngb-highlight></td>
-        <td><ngb-highlight [result]="clientorder.status" [term]="filter.value"></ngb-highlight></td>
+      <tr *ngFor="let trade of clientorders">
+        <td>{{trade.clientOrderId}}</td>
+        <td>{{trade.portfolioId}}</td>
+        <td>{{trade.product}}</td>
+        <td>{{trade.quantity}}</td>
+        <td>{{trade.side}}</td>
+        <td>{{trade.status}}</td>
       </tr>
-      </tbody>
+
     </table>
+  </div>
   </div>
